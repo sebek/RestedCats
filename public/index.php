@@ -2,6 +2,7 @@
 
 /**
  * The simplest of bootstraping
+ * Using composers autoload and then we'll go directly to the routes
  */
 
 $basePath = dirname(__FILE__);

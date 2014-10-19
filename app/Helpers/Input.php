@@ -13,7 +13,7 @@ class Input
         $inputString = file_get_contents("php://input");
         $inputJson = json_decode($inputString);
 
-        // If it's valid json, return it data as an array
+        // If it's valid json, return it as an array
         if (json_last_error() === JSON_ERROR_NONE) {
             return (array)$inputJson;
         }

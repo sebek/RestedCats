@@ -10,10 +10,8 @@ abstract class AbstractRepository implements RepositoryInterface
 
     public function __construct()
     {
-        /*
-         * Not really a kosher way to do it.
-         * Should have been injected, but for this little example it's not necessary
-         */
+        // Not really a kosher way to do it.
+        // Should have been injected, but for this little example it's not necessary
         $this->pdo = new PDO("sqlite:restedcats.sqlite3");
         $this->fpdo = new FluentPDO($this->pdo);
     }

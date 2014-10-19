@@ -9,9 +9,7 @@ use RestedCats\Repositories\CatsRepository;
 $input = new Input();
 $response = new Response();
 $validation = new Validation();
-
 $catsRepository = new CatsRepository();
-
 $route = new Router('/index.php/');
 
 $route->get('/cats/*', function ($id) use ($response, $catsRepository) {
@@ -45,7 +43,8 @@ $route->post('/cats/', function () use ($input, $response, $validation, $catsRep
 
     $rules = [
         "name" => ["required"],
-        "age" => ["required", "numeric"]
+        "age" => ["required", "numeric"],
+        "color" => ["string"]
     ];
 
     if ($validation->run($fields, $rules) === false) {
@@ -64,8 +63,9 @@ $route->put('/cats/*', function ($id) use ($input, $response, $validation, $cats
     $fields = $input->all();
 
     $rules = [
-        "name" => ["required"],
-        "age" => ["required", "numeric"]
+        "name" => ["required", "string"],
+        "age" => ["required", "numeric"],
+        "color" => ["string"]
     ];
 
     if ($validation->run($fields, $rules) === false) {
