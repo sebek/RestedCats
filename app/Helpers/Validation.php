@@ -112,7 +112,7 @@ class Validation
             return true;
         }
 
-        $this->addErrorMessage("{$key} is should be numeric.");
+        $this->addErrorMessage("{$key} should be numeric.");
         return false;
     }
 
@@ -135,7 +135,7 @@ class Validation
             return true;
         }
 
-        $this->addErrorMessage("{$key} is should a string.");
+        $this->addErrorMessage("{$key} should be a string.");
         return false;
     }
 
