@@ -4,26 +4,31 @@ finding, adding, creating, updating and deleting cats.
 
 I've used two libraries to build this.
 
-For simple routing
+For simple routing:
 https://github.com/Respect/Rest
 
-And for some simple database abstraction
+And for some simple database abstraction:
 https://github.com/lichtner/fluentpdo
 
 ### Installing
 
 Clone project
 ```
-git clone ssh://github.com/sebekish/RestedCats
+git clone https://github.com/sebek/RestedCats.git
 ```
 
-In project root
+In project root, run composer
 ```
 composer install
+```
+
+And also in project root, run the database create and seed script
+```
 php database/create_and_seed.php
 ```
 
 ### Running
+Use the built in server
 ```
 php -S localhost:8000 public/index.php
 ```
@@ -31,7 +36,10 @@ php -S localhost:8000 public/index.php
 ### Usage
 
 There's just one resource, /cats/, and it supports GET/POST/PUT/DELETE
-Use JSON-encoded parameters for POST and PUT.
+
+**Use JSON-encoded parameters for POST and PUT**
+
+*Form-encoded is not supported*
 
 #### Finding cats
 
