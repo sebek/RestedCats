@@ -58,17 +58,17 @@ curl -i -H "Content-Type: application/json" http://localhost:8000/cats/:id
 curl -i -H "Content-Type: application/json" http://localhost:8000/cats/:name/byName
 ```
 
-### Adding cats
+#### Adding cats
 ```
 curl -i -H "Content-Type: application/json" -d '{"name":"The Unsinkable Sam","age":"10","color":"red"}' -X POST http://localhost:8000/cats
 ```
 
-### Updating cats
+#### Updating cats
 ```
 curl -i -H "Content-Type: application/json" -d '{"name":"The Sinkable Sam","age":"10","color":"blue"}' -X PUT http://localhost:8000/cats/:id
 ```
 
-### Deleting cats
+#### Deleting cats
 ```
 curl -i -H "Content-Type: application/json" -X DELETE http://localhost:8000/cats/:id
 ```
