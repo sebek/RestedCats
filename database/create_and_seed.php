@@ -1,5 +1,7 @@
 <?php
 
+$baseDir = dirname(__FILE__);
+
 try {
 
     $db = new PDO("sqlite:restedcats.sqlite3");
@@ -20,20 +22,19 @@ try {
     );
 
     /**
+     * Empty cats table before seed
+     */
+    $db->exec(
+        "
+            DELETE FROM cats
+        "
+    );
+
+    /**
      * Seed initial data
      */
-    $cats = [
-        [
-            "name" => "Grumpy",
-            "color" => "White",
-            "age" => 4
-        ],
-        [
-            "name" => "Grolle",
-            "color" => "Gray",
-            "age" => 10
-        ]
-    ];
+    $cats = file_get_contents("{$baseDir}/cats.json");
+    $cats = json_decode($cats);
 
     $insert = "INSERT INTO cats (name, color, age) VALUES (:name, :color, :age)";
     $stmt = $db->prepare($insert);
@@ -43,10 +44,9 @@ try {
     $stmt->bindParam(":age", $age);
 
     foreach ($cats as $cat) {
-        $name = $cat["name"];
-        $color = $cat["color"];
-        $age = $cat["age"];
-
+        $name = $cat->name;
+        $color = $cat->color;
+        $age = $cat->age;
         $stmt->execute();
     }
 
